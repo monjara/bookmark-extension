@@ -1,15 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import BookmarkWindow from './components/bookmark-window'
 import './index.css'
 
 const root = document.createElement('div')
 root.id = 'bookmark-extension-root'
-document.body.append(root)
+document.body.appendChild(root)
 
-ReactDOM.render(
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <BookmarkWindow />
-  </React.StrictMode>,
-  root
+  </React.StrictMode>
 )
