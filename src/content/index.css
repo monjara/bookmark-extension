@@ -1,0 +1,11 @@
+#bookmark-extension-root {
+  position: absolute;
+  top: 0;
+  z-index: 999999999;
+
+  .window {
+    height: 20vh;
+    background: white;
+    color: black;
+  }
+}
