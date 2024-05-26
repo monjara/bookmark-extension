@@ -1,8 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 
 export default function BookmarkWindow() {
+  const [bookmarks, setBookmarks] = useState([])
   const [display, setDisplay] = useState(false)
   const keyCount = useRef(0)
+
+  useEffect(() => {
+    const getBookmarks = async () => {
+      const res = await chrome.runtime.sendMessage({ type: 'bookmarks' })
+      setBookmarks(res.tree)
+    }
+    getBookmarks()
+  }, [])
+
+  console.log('bookmarks: ', bookmarks)
 
   useEffect(() => {
     let timerId
