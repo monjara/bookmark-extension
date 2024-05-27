@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import Tree from './tree'
 
 export default function BookmarkWindow() {
   const [bookmarks, setBookmarks] = useState([])
@@ -48,7 +49,11 @@ export default function BookmarkWindow() {
 
   return (
     <div className='window'>
-      <h1>Bookmark Window</h1>
+      <div className='container'>
+        {bookmarks.map((item) => (
+          <Tree key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   )
 }
