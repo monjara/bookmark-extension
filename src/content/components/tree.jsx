@@ -1,12 +1,14 @@
+import { getFavicon } from '@/utils/getFavicon'
 import { useState } from 'react'
+import FolderIcon from './folder-icon'
+import FolderOpenIcon from './folder-open-icon'
 
 const LinkRow = ({ item }) => {
   return (
-    <div className='link-row'>
-      <a href={item.url}>
-        <span>{item.title}</span>
-      </a>
-    </div>
+    <a href={item.url} className='link-row'>
+      <img src={getFavicon(item.url)} alt='' style={{ width: 16 }} />
+      <span>{item.title}</span>
+    </a>
   )
 }
 
@@ -19,6 +21,7 @@ const FolderRow = ({ item }) => {
   return (
     <>
       <div className='folder-row' onClick={toggle} onKeyUp={toggle}>
+        {open ? <FolderOpenIcon /> : <FolderIcon />}
         <span>{item.title}</span>
       </div>
       {open &&

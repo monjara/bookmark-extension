@@ -5,11 +5,18 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": ["bookmarks"],
+  "permissions": [
+    "bookmarks",
+    "favicon"
+  ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["src/content/index.jsx"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content/index.jsx"
+      ]
     }
   ],
   "background": {
